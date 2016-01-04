@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="Leaf.cs" company="ArcTouch, Inc.">
+// <copyright file="LocationUpdatedEventArgs.cs" company="ArcTouch, Inc.">
 //   All rights reserved.
 //
 //   This file, its contents, concepts, methods, behavior, and operation
@@ -10,40 +10,23 @@
 //   the license agreement.
 // </copyright>
 // <summary>
-//   Defines the Leaf type.
+//   Defines the LocationUpdatedEventArgs type.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 //
 //
 using System;
+using Xamarin.Forms.Maps;
 
-using Xamarin.Forms;
-using Leaf.Views;
-using Leaf.Views.Pages;
-
-namespace Leaf
+namespace Leaf.Event
 {
-    public class App : Application
+    public class LocationUpdatedEventArgs : EventArgs
     {
-        public App()
-        {
-            // The root page of your application
-//            MainPage = new NavigationPage( new MapPage());
-        }
+        public Position Position { get; set; }
 
-        protected override void OnStart()
+        public LocationUpdatedEventArgs (double latitude, double longtitude)
         {
-            // Handle when your app starts
-        }
-
-        protected override void OnSleep()
-        {
-            // Handle when your app sleeps
-        }
-
-        protected override void OnResume()
-        {
-            // Handle when your app resumes
+            Position = new Position(latitude, longtitude);
         }
     }
 }

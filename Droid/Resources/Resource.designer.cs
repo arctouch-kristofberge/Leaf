@@ -3496,6 +3496,18 @@ namespace Leaf.Droid
 		public partial class Id
 		{
 			
+			// aapt resource value: 0x7f0a0088
+			public const int Play = 2131361928;
+			
+			// aapt resource value: 0x7f0a0086
+			public const int Record = 2131361926;
+			
+			// aapt resource value: 0x7f0a0089
+			public const int SampleVideoView = 2131361929;
+			
+			// aapt resource value: 0x7f0a0087
+			public const int Stop = 2131361927;
+			
 			// aapt resource value: 0x7f0a0079
 			public const int action0 = 2131361913;
 			
@@ -4088,6 +4100,9 @@ namespace Leaf.Droid
 			
 			// aapt resource value: 0x7f03002f
 			public const int support_simple_spinner_dropdown_item = 2130903087;
+			
+			// aapt resource value: 0x7f030030
+			public const int VideoRecordActivity = 2130903088;
 			
 			static Layout()
 			{

@@ -16,14 +16,14 @@
 //
 //
 using System;
+using Xamarin.Forms.Maps;
 
 namespace Leaf.Models
 {
     public class Note
     {
-        public Location Location { get; set; }
+        public Position Location { get; set; }
         public string Content { get; set; }
         public User Sender { get; set; }
     }
 }
-

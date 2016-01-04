@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="Location.cs" company="ArcTouch, Inc.">
+// <copyright file="VideoPage.xaml.cs" company="ArcTouch, Inc.">
 //   All rights reserved.
 //
 //   This file, its contents, concepts, methods, behavior, and operation
@@ -10,19 +10,24 @@
 //   the license agreement.
 // </copyright>
 // <summary>
-//   Defines the Location type.
+//   Defines the VideoPage.xaml type.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 //
 //
 using System;
+using System.Collections.Generic;
 
-namespace Leaf.Models
+using Xamarin.Forms;
+
+namespace Leaf.Views.Pages
 {
-    public class Location
+    public partial class VideoPage : ContentPage
     {
-        public double Longtitude { get; set; }
-        public double Latitude { get; set; }
+        public VideoPage()
+        {
+            InitializeComponent();
+        }
     }
 }
 

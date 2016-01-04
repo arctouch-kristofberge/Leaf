@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView
+	xmlns ="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+  xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+  xmlns:viewModels="clr-namespace:Leaf.ViewModels.CustomViews;assembly=Leaf"
+	x:Class="Leaf.Views.CustomViews.MapWithNotesInRadiusView">
+  <ContentView.BindingContext>
+    <viewModels:MapWithNotesInRadiusViewModel/>
+  </ContentView.BindingContext>
+
+	<ContentView.Content>
+    <StackLayout>
+      <maps:Map
+        IsShowingUser="true"
+        MapType="Hybrid"
+        Pins="{Binding NotesLocations}"/>
+    </StackLayout>
+	</ContentView.Content>
+</ContentView>

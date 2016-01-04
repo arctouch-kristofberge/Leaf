@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="Leaf.cs" company="ArcTouch, Inc.">
+// <copyright file="MapPage.xaml.cs" company="ArcTouch, Inc.">
 //   All rights reserved.
 //
 //   This file, its contents, concepts, methods, behavior, and operation
@@ -10,41 +10,36 @@
 //   the license agreement.
 // </copyright>
 // <summary>
-//   Defines the Leaf type.
+//   Defines the MapPage.xaml type.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 //
 //
 using System;
+using System.Collections.Generic;
 
 using Xamarin.Forms;
-using Leaf.Views;
-using Leaf.Views.Pages;
+using Xamarin.Forms.Maps;
 
-namespace Leaf
+namespace Leaf.Views.Pages
 {
-    public class App : Application
+    public partial class MapPage : ContentPage
     {
-        public App()
+        public MapPage()
         {
-            // The root page of your application
-//            MainPage = new NavigationPage( new MapPage());
-        }
+            InitializeComponent();
 
-        protected override void OnStart()
-        {
-            // Handle when your app starts
-        }
+            var map = new Map( MapSpan.FromCenterAndRadius(
+                new Position(52.509678, 13.375827),
+                Distance.FromKilometers(3)));
 
-        protected override void OnSleep()
-        {
-            // Handle when your app sleeps
-        }
+            map.IsShowingUser = false;
+            map.VerticalOptions = LayoutOptions.FillAndExpand;
+            map.HorizontalOptions = LayoutOptions.FillAndExpand;
 
-        protected override void OnResume()
-        {
-            // Handle when your app resumes
+            var stack = new StackLayout(){Spacing = 0};
+            stack.Children.Add(map);
+            Content = stack;
         }
     }
 }
-

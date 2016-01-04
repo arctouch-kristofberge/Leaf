@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="MapPage.xaml.cs" company="ArcTouch, Inc.">
+// <copyright file="MapWithPins.xaml.cs" company="ArcTouch, Inc.">
 //   All rights reserved.
 //
 //   This file, its contents, concepts, methods, behavior, and operation
@@ -10,36 +10,23 @@
 //   the license agreement.
 // </copyright>
 // <summary>
-//   Defines the MapPage.xaml type.
+//   Defines the MapWithPins.xaml type.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 //
 //
 using System;
 using System.Collections.Generic;
-
 using Xamarin.Forms;
-using Xamarin.Forms.Maps;
 
-namespace Leaf.Views
+namespace Leaf.Views.CustomViews
 {
-    public partial class MapPage : ContentPage
+    public partial class MapWithNotesInRadiusView : ContentView
     {
-        public MapPage()
+        
+        public MapWithNotesInRadiusView()
         {
             InitializeComponent();
-
-            var map = new Map( MapSpan.FromCenterAndRadius(
-                new Position(52.509678, 13.375827),
-                Distance.FromKilometers(3)));
-
-            map.IsShowingUser = false;
-            map.VerticalOptions = LayoutOptions.FillAndExpand;
-            map.HorizontalOptions = LayoutOptions.FillAndExpand;
-
-            var stack = new StackLayout(){Spacing = 0};
-            stack.Children.Add(map);
-            Content = stack;
         }
     }
 }

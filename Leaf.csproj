@@ -32,12 +32,20 @@
   <ItemGroup>
     <Compile Include="Leaf.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Views\MapPage.xaml.cs">
-      <DependentUpon>MapPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\Note.cs" />
-    <Compile Include="Models\Location.cs" />
+    <Compile Include="ViewModels\CustomViews\MapWithNotesInRadiusViewModel.cs" />
+    <Compile Include="Views\CustomViews\MapWithNotesInRadiusView.xaml.cs">
+      <DependentUpon>MapWithNotesInRadiusView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\MapPage.xaml.cs">
+      <DependentUpon>MapPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\ILocationService.cs" />
+    <Compile Include="Event\LocationUpdatedEventArgs.cs" />
+    <Compile Include="Views\Pages\VideoPage.xaml.cs">
+      <DependentUpon>VideoPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="packages\Xamarin.Forms.2.0.0.6490\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('packages\Xamarin.Forms.2.0.0.6490\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
@@ -54,6 +62,9 @@
     <Reference Include="Xamarin.Forms.Maps">
       <HintPath>packages\Xamarin.Forms.Maps.2.0.0.6490\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.Maps.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>packages\Newtonsoft.Json.6.0.8\lib\portable-net45+wp80+win8+wpa81+aspnetcore50\Newtonsoft.Json.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -61,9 +72,21 @@
   <ItemGroup>
     <Folder Include="Views\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\CustomViews\" />
+    <Folder Include="ViewModels\" />
+    <Folder Include="ViewModels\CustomViews\" />
+    <Folder Include="Views\Pages\" />
+    <Folder Include="Interfaces\" />
+    <Folder Include="Event\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\MapPage.xaml">
+    <EmbeddedResource Include="Views\CustomViews\MapWithNotesInRadiusView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pages\MapPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pages\VideoPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
