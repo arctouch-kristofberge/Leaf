@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="Leaf.cs" company="ArcTouch, Inc.">
+// <copyright file="Note.cs" company="ArcTouch, Inc.">
 //   All rights reserved.
 //
 //   This file, its contents, concepts, methods, behavior, and operation
@@ -10,40 +10,20 @@
 //   the license agreement.
 // </copyright>
 // <summary>
-//   Defines the Leaf type.
+//   Defines the Note type.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 //
 //
 using System;
 
-using Xamarin.Forms;
-using Leaf.Views;
-
-namespace Leaf
+namespace Leaf.Models
 {
-    public class App : Application
+    public class Note
     {
-        public App()
-        {
-            // The root page of your application
-            MainPage = new NavigationPage( new MapPage());
-        }
-
-        protected override void OnStart()
-        {
-            // Handle when your app starts
-        }
-
-        protected override void OnSleep()
-        {
-            // Handle when your app sleeps
-        }
-
-        protected override void OnResume()
-        {
-            // Handle when your app resumes
-        }
+        public Location Location { get; set; }
+        public string Content { get; set; }
+        public User Sender { get; set; }
     }
 }
 
