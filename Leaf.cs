@@ -28,7 +28,7 @@ namespace Leaf
         public App()
         {
             // The root page of your application
-//            MainPage = new NavigationPage( new MapPage());
+            MainPage = new NavigationPage( new MapPage());
         }
 
         protected override void OnStart()

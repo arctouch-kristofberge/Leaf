@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="MapPage.xaml.cs" company="ArcTouch, Inc.">
+// <copyright file="CreateNoteView.xaml.cs" company="ArcTouch, Inc.">
 //   All rights reserved.
 //
 //   This file, its contents, concepts, methods, behavior, and operation
@@ -10,24 +10,23 @@
 //   the license agreement.
 // </copyright>
 // <summary>
-//   Defines the MapPage.xaml type.
+//   Defines the CreateNoteView.xaml type.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 //
 //
 using System;
 using System.Collections.Generic;
-
 using Xamarin.Forms;
-using Xamarin.Forms.Maps;
 
-namespace Leaf.Views.Pages
+namespace Leaf.Views.CustomViews
 {
-    public partial class MapPage : ContentPage
+    public partial class CreateNoteView : ContentView
     {
-        public MapPage()
+        public CreateNoteView()
         {
             InitializeComponent();
         }
     }
 }
+

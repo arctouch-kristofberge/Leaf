@@ -18,6 +18,7 @@
 using System;
 using System.Collections.Generic;
 using Xamarin.Forms;
+using Leaf.ViewModels.CustomViews;
 
 namespace Leaf.Views.CustomViews
 {
@@ -27,6 +28,8 @@ namespace Leaf.Views.CustomViews
         public MapWithNotesInRadiusView()
         {
             InitializeComponent();
+
+            this.BindingContext = new MapWithNotesInRadiusViewModel(MapWithPins);
         }
     }
 }

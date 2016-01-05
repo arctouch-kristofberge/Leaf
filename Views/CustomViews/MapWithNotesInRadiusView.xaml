@@ -5,16 +5,13 @@
   xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
   xmlns:viewModels="clr-namespace:Leaf.ViewModels.CustomViews;assembly=Leaf"
 	x:Class="Leaf.Views.CustomViews.MapWithNotesInRadiusView">
-  <ContentView.BindingContext>
-    <viewModels:MapWithNotesInRadiusViewModel/>
-  </ContentView.BindingContext>
 
 	<ContentView.Content>
     <StackLayout>
       <maps:Map
+        x:Name="MapWithPins"
         IsShowingUser="true"
-        MapType="Hybrid"
-        Pins="{Binding NotesLocations}"/>
+        MapType="Street" />
     </StackLayout>
 	</ContentView.Content>
 </ContentView>

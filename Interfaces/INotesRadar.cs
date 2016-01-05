@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="MapPage.xaml.cs" company="ArcTouch, Inc.">
+// <copyright file="INotesLocationService.cs" company="ArcTouch, Inc.">
 //   All rights reserved.
 //
 //   This file, its contents, concepts, methods, behavior, and operation
@@ -10,24 +10,20 @@
 //   the license agreement.
 // </copyright>
 // <summary>
-//   Defines the MapPage.xaml type.
+//   Defines the INotesLocationService type.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 //
 //
 using System;
 using System.Collections.Generic;
-
-using Xamarin.Forms;
 using Xamarin.Forms.Maps;
 
-namespace Leaf.Views.Pages
+namespace Leaf.Interfaces
 {
-    public partial class MapPage : ContentPage
+    public interface INotesRadar
     {
-        public MapPage()
-        {
-            InitializeComponent();
-        }
+        IList<Pin> GetNotesWithinRadius(Position currentLocation);
     }
 }
+

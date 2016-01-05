@@ -21,27 +21,48 @@ using Xamarin.Forms.Maps;
 using Leaf.Interfaces;
 using Xamarin.Forms;
 using Leaf.Event;
+using PropertyChanged;
 
 namespace Leaf.ViewModels.CustomViews
 {
-
+    [ImplementPropertyChanged]
     public class MapWithNotesInRadiusViewModel
     {
-        public ObservableCollection<Pin> NotesLocations { get; set; }
         public Position CurrentLocation { get; set; }
 
+        private Map map;
         private ILocationService locationService;
+        private INotesRadar notesRadar;
 
-        public MapWithNotesInRadiusViewModel()
+        public MapWithNotesInRadiusViewModel(Map map)
         {
+            this.map = map;
+
             locationService = DependencyService.Get<ILocationService>();
             locationService.LocationUpdated += LocationUpdated;
             locationService.StartUpdatingLocation();
+
+            notesRadar = DependencyService.Get<INotesRadar>();
+
+            this.map.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(52.509678, 13.375827), Distance.FromKilometers(1)));
         }
 
         private void LocationUpdated (object sender, LocationUpdatedEventArgs e)
         {
             CurrentLocation = e.Position;
+            map.MoveToRegion(MapSpan.FromCenterAndRadius(e.Position, Distance.FromKilometers(1)));
+
+            UpdateNotesPins();
+        }
+
+        private void UpdateNotesPins()
+        {
+            map.Pins.Clear();
+
+            foreach(Pin pin in notesRadar.GetNotesWithinRadius(CurrentLocation))
+            {
+                map.Pins.Add(pin);
+            }
         }
     }
 }

@@ -46,14 +46,14 @@ namespace Leaf.Droid.Implementations
             Criteria locationCriteria = new Criteria();
             locationCriteria.Accuracy = Accuracy.Fine;
 
-            return this.manager.GetBestProvider(locationCriteria, true);
+            return LocationManager.NetworkProvider;
         }
 
         private void StartListening(string provider)
         {
             if(!string.IsNullOrEmpty(provider))
             {
-                this.manager.RequestLocationUpdates(provider, 5, 50, this);
+                this.manager.RequestLocationUpdates(provider, 500, 0, this);
             }
         }
 

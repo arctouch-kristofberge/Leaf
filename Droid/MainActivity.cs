@@ -2,11 +2,10 @@
 using Android.App;
 using Android.Content.PM;
 using Android.OS;
-using Leaf.Droid.Activities;
 
 namespace Leaf.Droid
 {
-    [Activity(Label = "Leaf.Droid", Icon = "@drawable/icon", MainLauncher = false, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Label = "Leaf.Droid", Icon = "@drawable/icon", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity
     {
         protected override void OnCreate(Bundle bundle)
@@ -17,9 +16,7 @@ namespace Leaf.Droid
 
             Xamarin.FormsMaps.Init(this, bundle);
 
-//            LoadApplication(new App());
-
-            StartActivity(typeof(VideoRecordActivity));
+            LoadApplication(new App());
         }
     }
 }
