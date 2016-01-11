@@ -29,7 +29,7 @@ namespace Leaf.Views.CustomViews
         {
             InitializeComponent();
 
-            this.BindingContext = new MapWithNotesInRadiusViewModel(MapWithPins);
+//            this.BindingContext = new MapWithNotesInRadiusViewModel(MapWithPins);
         }
     }
 }

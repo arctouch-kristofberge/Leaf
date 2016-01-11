@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="CreateNoteView.xaml.cs" company="ArcTouch, Inc.">
+// <copyright file="PoistionExtensions.cs" company="ArcTouch, Inc.">
 //   All rights reserved.
 //
 //   This file, its contents, concepts, methods, behavior, and operation
@@ -10,22 +10,23 @@
 //   the license agreement.
 // </copyright>
 // <summary>
-//   Defines the CreateNoteView.xaml type.
+//   Defines the PoistionExtensions type.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 //
 //
 using System;
-using System.Collections.Generic;
-using Xamarin.Forms;
+using Xamarin.Forms.Maps;
 
-namespace Leaf.Views.CustomViews
+namespace Leaf.Extensions
 {
-    public partial class CreateNoteView : ContentView
+    public static class PositionExtensions
     {
-        public CreateNoteView()
+        public static double DistanceTo(this Position fromPos, Position toPos)
         {
-            InitializeComponent();
+            return Math.Sqrt(
+                Math.Pow(fromPos.Latitude - toPos.Latitude, 2) + 
+                Math.Pow(fromPos.Longitude - toPos.Longitude, 2));
         }
     }
 }

@@ -21,23 +21,35 @@ using Leaf.Droid.Implementations;
 using Leaf.Interfaces;
 using System.Collections.Generic;
 using Xamarin.Forms.Maps;
+using System.Linq;
+using Leaf.Extensions;
 
 [assembly: Dependency(typeof(NotesRadarDummy))]
 namespace Leaf.Droid.Implementations
 {
     public class NotesRadarDummy : INotesRadar
     {
-        
+        private IList<Pin> Notes;
+
         public IList<Pin> GetNotesWithinRadius(Position currentLocation)
         {
-            return new List<Pin>() { 
-                new Pin(){ Position = new Position(currentLocation.Latitude + 0.0005, currentLocation.Longitude + 0.0005), Label = "Note" },
-                new Pin(){ Position = new Position(currentLocation.Latitude + 0.0005, currentLocation.Longitude - 0.0005), Label = "Note" },
-                new Pin(){ Position = new Position(currentLocation.Latitude - 0.0005, currentLocation.Longitude + 0.0005), Label = "Note" },
-                new Pin(){ Position = new Position(currentLocation.Latitude - 0.0005, currentLocation.Longitude - 0.0005), Label = "Note" },
-            };
+            Notes = Notes ?? FillNotesList(currentLocation);
+
+            var notes = Notes.Where(x => x.Position.DistanceTo(currentLocation) <= 1000).ToList();
+            return notes;
         }
        
+        private IList<Pin> FillNotesList(Position currentLocation)
+        {
+            // Pins inside radius
+            IList<Pin> notes = new List<Pin> { 
+                new Pin { Position = new Position(currentLocation.Latitude + 0.05, currentLocation.Longitude + 0.05), Label = "Note" },
+                new Pin { Position = new Position(currentLocation.Latitude + 0.05, currentLocation.Longitude - 0.05), Label = "Note" },
+                new Pin { Position = new Position(currentLocation.Latitude - 0.05, currentLocation.Longitude + 0.05), Label = "Note" },
+                new Pin { Position = new Position(currentLocation.Latitude - 0.05, currentLocation.Longitude - 0.05), Label = "Note" },
+            };
+            return notes;
+
+        }
     }
 }
-
